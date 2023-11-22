@@ -85,7 +85,6 @@ export const editUserController = async (req, res) => {
 // Update user
 export const updateUserController = async (req, res) => {
   try {
-    const users = await User.find();
     const { id } = req.params;
     const user = await User.findOne({ _id: id });
     const { name, email, phone } = req.body;
