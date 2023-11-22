@@ -18,6 +18,6 @@ router.get("/add-user", addUserController);
 router.post("/add-user", upload.single("image"), saveUserController);
 router.get("/about-page", aboutPageController);
 router.get("/edit/:id", editUserController);
-router.post("/update-user", updateUserController);
+router.post("/update-user/:id",upload.single("image"), updateUserController);
 
 export default router;
