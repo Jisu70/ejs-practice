@@ -7,7 +7,7 @@ dotenv.config() ;
 
 // Session 
 app.use(session({
-    secret : "new secret key",
+    secret : "jhfuyjhcghh",
     saveUninitialized : true,
     resave : true
 }))

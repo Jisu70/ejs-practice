@@ -18,7 +18,7 @@
       <% } %>
 
       <div class="table-responsive">
-        <% if (users !=='') { %>
+        <% if (users != []) { %>
         <table class="table table-striped text-center">
           <thead>
             <tr class="table-dark">
@@ -49,7 +49,7 @@
                 <a href="/edit/<%= row._id %>" class="text-success">
                   <i class="fas fa-edit fa-lg mx-1"></i>
                 </a>
-                <a href="/delete/<%= row._id %>" class="text-danger">
+                <a href="/delete-user/<%= row._id %>" class="text-danger">
                   <i class="fas fa-trash fa-lg mx-1"></i>
                 </a>
               </td>

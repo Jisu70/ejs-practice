@@ -9,6 +9,7 @@ import {
   aboutPageController,
   editUserController,
   updateUserController,
+  deleteUser
 } from "../controller/homeController.js";
 
 const router = express.Router();
@@ -19,5 +20,6 @@ router.post("/add-user", upload.single("image"), saveUserController);
 router.get("/about-page", aboutPageController);
 router.get("/edit/:id", editUserController);
 router.post("/update-user/:id",upload.single("image"), updateUserController);
+router.get("/delete-user/:id", deleteUser);
 
 export default router;
