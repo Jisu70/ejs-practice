@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 // Models
 import User from "../models/UserModel.js";
+import fs from "fs";
 
 // Get all the users
 export const getController = async (req, res) => {
@@ -86,13 +87,18 @@ export const editUserController = async (req, res) => {
 export const updateUserController = async (req, res) => {
   try {
     const { id } = req.params;
-    const user = await User.findOne({ _id: id });
     const { name, email, phone } = req.body;
+    const user = await User.findOne({ _id: id });
+    const oldImage = user.image;
     user.name = name;
     user.email = email;
     user.phone = phone;
     user.image = req.file.filename;
-    await user.save();
+    
+    const result = await user.save({ new: true });
+    if (result) {
+      fs.unlinkSync(`./uploads/${oldImage}`);
+    }
     req.session.message = {
       type: "success",
       message: "User Updated successfully",
